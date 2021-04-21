@@ -22,6 +22,7 @@ basic.pause(200)
 let poeng = 0
 spiller = 2
 led.plot(2, 4)
+let pust = 500
 let liv = 3
 while (liv >= 0) {
     hull = randint(0, 4)
@@ -31,7 +32,7 @@ while (liv >= 0) {
                 led.plot(xindex, yindex)
             }
         }
-        basic.pause(300)
+        basic.pause(pust)
         for (let xindex = 0; xindex <= 4; xindex++) {
             if (xindex != hull) {
                 led.unplot(xindex, yindex)
@@ -40,6 +41,9 @@ while (liv >= 0) {
     }
     if (spiller == hull) {
         poeng += 1
+        if (pust > 200) {
+            pust += -20
+        }
         soundExpression.happy.play()
         basic.pause(100)
     } else {
